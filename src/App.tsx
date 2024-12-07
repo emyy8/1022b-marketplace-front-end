@@ -12,7 +12,7 @@ function App() {
   const [produtos, setProdutos] = useState<ProdutoType[]>([])
   //useEffect(O QUe fazer, Quando Fazer)
   useEffect(()=>{
-    fetch("https://one022b-marketplace-d6hb.onrender.com/produtos")
+    fetch("http://localhost:8000/produtos")
     .then(resposta=>resposta.json())
     .then(dados=>setProdutos(dados))
   },[])
