@@ -19,7 +19,7 @@ export default function CadastroProduto(){
             preco: preco,
             imagem: imagem
         }
-        fetch("http://localhost:8000/produtos",{
+        fetch("https://one022b-marketplace-d6hb.onrender.com/produtos",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
