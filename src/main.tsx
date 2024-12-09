@@ -1,29 +1,31 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
-import CadastroProduto from './componentes/cadastroproduto/CadastroProduto.tsx';
+} from 'react-router-dom';
+import CadastroLivro from './componentes/cadastrolivro/cadastroLivro.tsx';
+import ListaLivro from './componentes/listalivro/listaLivro.tsx';
 
-
-//Crie um comentário explicando o que faz o código abaixo
-//Cria uma instância do BrowserRouter e passa um array de objetos com as rotas da aplicação
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
   {
-    path: "/cadastro-produto",
-    element: <CadastroProduto/>,
+    path: "/cadastro-livro",
+    element: <CadastroLivro />, // Corrigido para o nome correto
   },
+  {
+    path: "/lista-livro",
+    element: <ListaLivro />,
+  }
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,
-)
+);
