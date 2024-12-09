@@ -1,42 +1,158 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #282828;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Estilo para o cabeçalho */
+.site-header {
+    background-color: #9E4DDD;
+    padding: 25px 0; /* Aumentado o padding para mais altura */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between; /* Espaço entre os itens */
+    align-items: center;
+    padding-left: 30px; /* Espaço à esquerda */
+    padding-right: 30px; /* Espaço à direita */
 }
 
-.card {
-  padding: 2em;
+/* Estilo do menu de navegação */
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Aumentando o espaçamento entre os itens */
+    margin: 0;
+    padding: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.navigation li {
+    font-size: 1.4rem; /* Aumentado o tamanho da fonte */
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+}
+
+.navigation a:hover {
+    color: #f4f4f4;
+}
+
+/* Estilo para o primeiro item (Home) ser à esquerda */
+.navigation ul li:first-child {
+    margin-right: auto; /* Empurra os itens à direita */
+}
+
+/* Título da lista */
+h1.titulo-lista {
+    font-size: 2.5rem;
+    text-align: flex;
+    margin: 100px 0 40px;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Contêiner para os livros */
+.container-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajuste para múltiplos livros lado a lado */
+    gap: 30px;
+    margin: 60px auto 30px;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 80%;
+    justify-content: center;
+}
+
+/* Estilo para cada item de livro */
+.livro-item {
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px; /* Ajustado para dar mais espaço para as informações */
+}
+
+/* Efeito de hover para o livro */
+.livro-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo da imagem do livro */
+.livro-imagem {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Título do livro */
+.livro-item h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilo das informações do livro */
+.livro-item p {
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 8px 0;
+    text-align: justify;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    h1.titulo-lista {
+        font-size: 2rem; /* Tamanho de fonte menor para telas pequenas */
+    }
+
+    .container-livros {
+        grid-template-columns: 1fr; /* Para dispositivos móveis, apenas 1 coluna */
+        gap: 15px;
+    }
+
+    .navigation ul {
+        flex-direction: column; /* Alinha os itens do menu na vertical */
+        gap: 12px;
+    }
+
+    .navigation a {
+        font-size: 1.1rem;
+        padding: 5px 0;
+    }
 }
